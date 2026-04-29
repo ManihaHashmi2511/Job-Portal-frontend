@@ -1,0 +1,11 @@
+
+.profile:hover  .prolog{
+    transition: all 0.3s ease-in-out;
+     color: #EC003F;
+}
+.bg-nav {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.icon-color {
+    transition: all 0.4s ease-in-out;
+}

@@ -1,0 +1,4 @@
+- [x] Remove pre-filling useEffect in CompanyEdit.jsx
+- [x] Remove pre-filling useEffect in CreateAdminJobs.jsx (already removed)
+- [x] Remove requirements splitting code in CreateAdminJobs.jsx
+- [x] Revert dataToSend to send input directly

@@ -1,0 +1,15 @@
+.bg-section{
+    background-image: url('images/566.jpg');
+    background-size: cover;
+    background-position: bottom ;
+    height: 500px;
+    position: relative;
+}
+.bga {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
