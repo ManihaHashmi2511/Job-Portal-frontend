@@ -24,11 +24,12 @@ export default function Navbar2() {
         {},
         {
           withCredentials: true,
-        }
+        },
       );
 
       if (res.status === 200) {
         dispatch(setUser(null));
+        localStorage.removeItem("user"); // 🔥 IMPORTANT
         navigate("/");
         toast.success(res.data.message || "Logout successfully!");
       }
@@ -43,7 +44,10 @@ export default function Navbar2() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/profile`, { withCredentials: true });
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/users/profile`,
+          { withCredentials: true },
+        );
         if (res.status === 200) {
           dispatch(setUser(res.data.user));
         }
@@ -61,9 +65,17 @@ export default function Navbar2() {
       <div className="">
         <div className="flex items-center justify-between mx-auto max-w-6xl py-5 h-16  ">
           <div>
-            <h1 className="text-3xl font-bold text-black">
-              Job<span className="text-rose-500" style={{fontFamily:'Berkshire Swash,cursive '}}>Hunt</span>
-            </h1>
+            <Link to={"/"}>
+              <h1 className="text-3xl font-bold text-white">
+                Job
+                <span
+                  className="text-rose-500"
+                  style={{ fontFamily: "Berkshire Swash,cursive " }}
+                >
+                  Hunt
+                </span>
+              </h1>
+            </Link>
           </div>
           <div className="flex items-center gap-10 ">
             <ul className="flex gap-4 text-[18px] font-medium text-black">

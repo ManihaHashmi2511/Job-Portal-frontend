@@ -19,15 +19,16 @@ export default function Navbar3() {
     try {
       // ✅ Changed from GET to POST method
       const res = await axios.post(
-        "http://localhost:8000/api/users/logout",
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/logout`,
         {},
         {
           withCredentials: true,
-        }
+        },
       );
 
       if (res.status === 200) {
         dispatch(setUser(null));
+        localStorage.removeItem("user");
         navigate("/");
         toast.success(res.data.message || "Logout successfully!");
       }
@@ -42,7 +43,10 @@ export default function Navbar3() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/api/users/profile', { withCredentials: true });
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/users/profile`,
+          { withCredentials: true },
+        );
         if (res.status === 200) {
           dispatch(setUser(res.data.user));
         }
@@ -60,9 +64,17 @@ export default function Navbar3() {
       <div className="">
         <div className="flex items-center justify-between mx-auto max-w-6xl py-5 h-16  ">
           <div>
-            <h1 className="text-3xl font-bold text-white">
-              Job<span className="text-rose-500">Hunt</span>
-            </h1>
+            <Link to={"/"}>
+              <h1 className="text-3xl font-bold text-white">
+                Job
+                <span
+                  className="text-rose-500"
+                  style={{ fontFamily: "Berkshire Swash,cursive " }}
+                >
+                  Hunt
+                </span>
+              </h1>
+            </Link>
           </div>
           <div className="flex items-center gap-10 ">
             <ul className="flex gap-4 text-[18px] font-medium text-white">
