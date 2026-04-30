@@ -71,7 +71,7 @@ export default function EditProfile({ edit, setEdit }) {
 
     try {
      
-      const res = await axios.put(`${API_BASE_URL}/api/users/updateProfile`, formData, {
+      const res = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/users/updateProfile`, formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         },

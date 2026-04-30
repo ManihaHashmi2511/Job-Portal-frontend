@@ -11,7 +11,7 @@ export default function useGetSingleCompany({companyId}) {
     // Function to fetch all jobs from the backend
     const fetchSingleCompany = async () => {
         try {
-             const res = await axios.get(`${API_BASE_URL}/api/companies/get/${companyId}`, {withCredentials: true}); 
+             const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/companies/get/${companyId}`, {withCredentials: true}); 
                 if(res.status === 200){
                   dispatch(setSingleCompany(res.data.company));
                 }

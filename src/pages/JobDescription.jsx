@@ -27,7 +27,7 @@ export default function JobDescription({ job }) {
     const fetchSingleJob = async () => {
       try {
         const res = await axios.get(
-          `${API_BASE_URL}/api/jobs/get/${jobId}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/jobs/get/${jobId}`,
           { withCredentials: true }
         );
         if (res.status === 200) {
@@ -55,7 +55,7 @@ export default function JobDescription({ job }) {
 
     try {
       const res = await axios.post(
-        `${API_BASE_URL}/api/applications/apply/${jobId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/applications/apply/${jobId}`,
         {},
         { withCredentials: true }
       );
@@ -63,7 +63,7 @@ export default function JobDescription({ job }) {
       if (res.status === 200) {
         // Refetch the job data to update the state properly
         const updatedJobRes = await axios.get(
-          `${API_BASE_URL}/api/jobs/get/${jobId}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/jobs/get/${jobId}`,
           { withCredentials: true }
         );
         if (updatedJobRes.status === 200) {

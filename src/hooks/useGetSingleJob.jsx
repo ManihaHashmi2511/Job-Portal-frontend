@@ -11,7 +11,7 @@ export default function useGetSingleJob({jobId}) {
     // Function to fetch single job from the backend
     const fetchSingleJob = async () => {
         try {
-             const res = await axios.get(`${API_BASE_URL}/api/jobs/get/${jobId}`, {withCredentials: true}); 
+             const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/get/${jobId}`, {withCredentials: true}); 
                 if(res.status === 200){
                   dispatch(setSingleJob(res.data.job));
                 }

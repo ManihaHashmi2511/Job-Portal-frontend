@@ -11,19 +11,19 @@ import HeroSection from "./HeroSection";
 import { motion } from "framer-motion";
 
 export default function Home() {
-   useGetAllJobs();
+  useGetAllJobs();
 
-   const {user} = useSelector(store => store.auth);
-   const navigate = useNavigate();
-   useEffect(() =>{
-    if(user?.role === "recruiter"){
+  const { user } = useSelector((store) => store.auth);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user?.role === "recruiter") {
       navigate("/admin/companies");
     }
-   }, [])
+  }, []);
 
-   console.log("Home page rendered", useGetAllJobs());
+  console.log("Home page rendered", useGetAllJobs());
 
-   const {allJobs} = useSelector(store => store.job);
+  const { allJobs } = useSelector((store) => store.job);
 
   const catagory = [
     "Frontend Developer",
@@ -33,7 +33,7 @@ export default function Home() {
     "MERN Developer",
   ];
 
- const randomJobs = [1,2,3,4,5,6,7,8];
+  const randomJobs = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
     <div>
@@ -41,7 +41,7 @@ export default function Home() {
 
       {/*  ------Hero Section------    */}
 
-     <HeroSection/>
+      <HeroSection />
 
       {/*  ------Hero Section Ends Here------    */}
 
@@ -54,17 +54,27 @@ export default function Home() {
           </h1>
         </div>
         <div className="flex flex-wrap justify-center gap-2 p-4">
-         {
-          allJobs.length !== 0 ? allJobs.slice(0,6).map((job) => <motion.div  key={job._id} initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true }}><LatestJobs job={job} /></motion.div> ) :   <span>No Jobs Found</span>
-         }
+          {allJobs && allJobs.length > 0 ? (
+            allJobs.slice(0, 6).map((job) => (
+              <motion.div
+                key={job._id}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <LatestJobs job={job} />
+              </motion.div>
+            ))
+          ) : (
+            <span>No Jobs Found</span>
+          )}
         </div>
-       
       </section>
 
       {/*  ------Latest Jobs Section Ends Here------   */}
 
-
-    {/*  Footer Section Starts Here  */}
+      {/*  Footer Section Starts Here  */}
       <FooterComponent />
     </div>
   );

@@ -35,7 +35,7 @@ export default function Login() {
 
     try {
       dispatch(setLoading(true)); // Set loading state to true
-      const res = await axios.post(`${API_BASE_URL}/api/users/login`, input, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/login`, input, {
         headers: {
           "Content-Type": "application/json"
         },

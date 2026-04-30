@@ -44,7 +44,7 @@ const {user} = useSelector(store => store.auth);
       formData.append("file", input.file);
     }
 
-    axios.post(`${API_BASE_URL}/api/users/register`, formData, {
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/register`, formData, {
       headers: {
         "Content-Type": "multipart/form-data"
       },

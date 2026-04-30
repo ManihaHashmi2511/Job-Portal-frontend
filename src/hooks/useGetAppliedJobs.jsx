@@ -11,7 +11,7 @@ export default function useGetAppliedJobs() {
   useEffect(()=>{
     const fetchAppliedJobs = async ()=>{
         try {
-            const res = await axios.get(`${API_BASE_URL}/api/applications/getAppliedJobs`, {withCredentials:true});
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/applications/getAppliedJobs`, {withCredentials:true});
             console.log(res.data);
 
             if(res.status === 200){

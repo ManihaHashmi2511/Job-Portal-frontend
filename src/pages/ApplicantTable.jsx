@@ -20,7 +20,7 @@ export default function ApplicantTable() {
 
   const handleStatusUpdate = async (applicationId, status) => {
     try {
-      await axios.post(`${API_BASE_URL}/api/applications/status/${applicationId}/update`, { status }, { withCredentials: true });
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/applications/status/${applicationId}/update`, { status }, { withCredentials: true });
       // Optionally refresh data or update local state
       window.location.reload(); // Simple refresh for now
     } catch (error) {

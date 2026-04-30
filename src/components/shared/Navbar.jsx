@@ -20,7 +20,7 @@ export default function Navbar() {
     try {
       // ✅ Changed from GET to POST method
       const res = await axios.post(
-        `${API_BASE_URL}/api/users/logout`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/logout`,
         {},
         {
           withCredentials: true,
@@ -43,7 +43,7 @@ export default function Navbar() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/users/profile`, { withCredentials: true });
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/profile`, { withCredentials: true });
         if (res.status === 200) {
           dispatch(setUser(res.data.user));
         }

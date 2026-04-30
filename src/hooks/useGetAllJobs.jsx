@@ -13,7 +13,7 @@ export default function useGetAllJobs() {
     const fetchAllJobs = async () => {
       try {
         const res = await axios.get(
-          `${API_BASE_URL}/api/jobs/get?keywords=${searchedQuery}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/jobs/get?keywords=${searchedQuery}`,
           { withCredentials: true }
         );
         if (res.status === 200) {
