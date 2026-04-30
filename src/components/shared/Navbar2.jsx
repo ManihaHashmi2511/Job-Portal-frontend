@@ -15,6 +15,7 @@ import API_BASE_URL from "@/api/config";
 export default function Navbar2() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { user } = useSelector((store) => store.auth);
 
   const logoutHandler = async () => {
     try {
@@ -30,7 +31,13 @@ export default function Navbar2() {
       if (res.status === 200) {
         dispatch(setUser(null));
         localStorage.removeItem("user"); // 🔥 IMPORTANT
-        navigate("/");
+        
+      // ✅ 3. Force UI refresh via navigation
+      navigate("/", { replace: true });
+
+      // ✅ 4. Optional: reload (ONLY if still issues)
+      window.location.reload();
+
         toast.success(res.data.message || "Logout successfully!");
       }
     } catch (error) {
@@ -39,7 +46,6 @@ export default function Navbar2() {
     }
   };
 
-  const { user } = useSelector((store) => store.auth);
 
   useEffect(() => {
     const fetchUser = async () => {
