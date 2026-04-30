@@ -13,11 +13,14 @@ import { Button } from "flowbite-react";
 
 export default function CategoryCarousel() {
   const catagory = [
-    "Frontend Developer",
+     "Frontend Developer",
     "Backend Developer",
-    "Full Stack Developer",
     "Graphic Designer",
-    "MERN Stack Developer",
+    "MERN Developer",
+    "DevOps Engineer",
+    "Software Engineer",
+    "Full Stack Developer",
+    "UI/UX Designer",
   ];
   const dispatch = useDispatch();
   const navigate = useNavigate();
