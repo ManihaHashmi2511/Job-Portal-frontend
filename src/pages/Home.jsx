@@ -28,9 +28,12 @@ export default function Home() {
   const catagory = [
     "Frontend Developer",
     "Backend Developer",
-    "Full Stack Developer",
     "Graphic Designer",
     "MERN Developer",
+    "DevOps Engineer",
+    "Software Engineer",
+    "Full Stack Developer",
+    "UI/UX Designer",
   ];
 
   const randomJobs = [1, 2, 3, 4, 5, 6, 7, 8];
