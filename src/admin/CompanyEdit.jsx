@@ -49,7 +49,7 @@ export default function CompanyEdit() {
     try {
       setLoading(true);
       const response = await axios.put(
-        `http://localhost:8000/api/companies/update/${params.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/companies/update/${params.id}`,
         formData,
         {
           headers: {
@@ -60,11 +60,11 @@ export default function CompanyEdit() {
       );
 
       if (response.status === 200) {
-        toast.success("Company created successfully!");
+        toast.success("Company updated successfully!");
         navigate("/admin/companies");
       }
     } catch (error) {
-      toast.error("Failed to create company.");
+      toast.error("Failed to update company.");
       console.error(error);
     } finally {
       setLoading(false);

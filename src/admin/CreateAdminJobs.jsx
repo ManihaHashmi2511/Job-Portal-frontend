@@ -73,7 +73,7 @@ export default function CreateAdminJobs() {
 
       let res;
       if (id) {
-        res = await axios.put(`http://localhost:8000/api/jobs/update/${id}`, input, {
+        res = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/update/${id}`, input, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -84,7 +84,7 @@ export default function CreateAdminJobs() {
           navigate("/admin/jobs");
         }
       } else {
-        res = await axios.post("http://localhost:8000/api/jobs/post-job", input, {
+        res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/post-job`, input, {
           headers: {
             "Content-Type": "application/json",
           },

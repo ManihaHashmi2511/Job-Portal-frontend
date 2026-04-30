@@ -15,7 +15,7 @@ export default function CreateComapny() {
   const registerNewCompany = async () => {
     try {
 
-        const res = await axios.post("http://localhost:8000/api/companies/register", {companyName},{
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/companies/register`, {companyName},{
             headers: {
               "Content-Type": "application/json"
             },
