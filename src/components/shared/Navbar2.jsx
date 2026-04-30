@@ -72,7 +72,7 @@ export default function Navbar2() {
         <div className="flex items-center justify-between mx-auto max-w-6xl py-5 h-16  ">
           <div>
             <Link to={"/"}>
-              <h1 className="text-3xl font-bold text-white">
+              <h1 className="text-3xl font-bold text-black">
                 Job
                 <span
                   className="text-rose-500"
